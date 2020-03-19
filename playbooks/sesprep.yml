@@ -33,8 +33,9 @@
         name: "{{ prereqs }}"
         state: present
       vars:
-        - redhat-lsb
-        - nfs-utils
+        prereqs:
+          - redhat-lsb
+          - nfs-utils
 
     - name: Reset ans password
       user:
