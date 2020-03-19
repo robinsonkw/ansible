@@ -17,7 +17,7 @@
         owner: root
         group: root
         mode: '0640'
-      when: ansible_facts['lsb']['major_release']|int == 7 && ansible_facts['lsb']['id'] == "RedHatEnterpriseServer"
+      when: ansible_facts['lsb']['major_release']|int == 7 and ansible_facts['lsb']['id'] == "RedHatEnterpriseServer"
 
     - name: Install repo configs
       copy:
@@ -26,7 +26,7 @@
         owner: root
         group: root
         mode: '0640'
-      when: ansible_facts['lsb']['major_release']|int == 7 && ansible_facts['lsb']['id'] == "RedHatEnterpriseWorkstation"
+      when: ansible_facts['lsb']['major_release']|int == 7 and ansible_facts['lsb']['id'] == "RedHatEnterpriseWorkstation"
 
     - name: Install prequisite packages
       yum:
