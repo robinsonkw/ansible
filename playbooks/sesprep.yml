@@ -75,7 +75,7 @@
         state: absent
       when: lsb_result.changed
 
-    - name: Clean up lsbinstall if necessary
+    - name: Cleanup lsbinstall if necessary
       file:
         name: /var/tmp/lsbinstall/
         state: absent

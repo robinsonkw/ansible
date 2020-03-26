@@ -1,3 +1,4 @@
 ---
-
+- name: Import universal STIG-RH-7-010010
+  import: rh7-uni-010010.yml
 ...
