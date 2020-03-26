@@ -5,7 +5,6 @@
     warn: False # Ignore ANSIBLE0006, we can't fetch files with incorrect hash using rpm module
   register: files_with_incorrect_hash
   changed_when: False
-  when: (package_manager_reinstall_cmd is defined) and True
   check_mode: no
 
 - name: "Reinstall packages of files with incorrect hash"
