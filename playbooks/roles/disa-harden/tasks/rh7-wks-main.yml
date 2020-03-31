@@ -1,8 +1,6 @@
 ---
 - import_tasks: rh7-uni-010010.yml
-
-#- name: Import universal DISA STIG-RH-7-010020
-#  import_tasks: rh7-uni-010020.yml
+- import_tasks: rh7-uni-010020.yml
 
 #- name: Import universal DISA STIG-RH-7-010030
 #  import_tasks: rh7-uni-010030.yml
