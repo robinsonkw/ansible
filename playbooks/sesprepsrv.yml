@@ -9,7 +9,7 @@
         
     - name: Add redhat-lsb repo if necessary
       copy:
-        src: /nfs/admin/twr_files/work/lsbinstall/
+        src: /nfs/admin/twr_files/work/lsbinstall/srv/
         dest: /var/tmp/lsbinstall/
         owner: root
         group: root

@@ -1,0 +1,89 @@
+---
+- hosts: all
+  become_user: root
+  become: yes
+  tasks:
+    - name: Gather list of installed packages
+      package_facts:
+        manager: auto
+        
+    - name: Add redhat-lsb repo if necessary
+      copy:
+        src: /nfs/admin/twr_files/work/lsbinstall/wks/
+        dest: /var/tmp/lsbinstall/
+        owner: root
+        group: root
+        mode: 0755
+      when: "'redhat-lsb' not in ansible_facts.packages"
+
+    - name: Add redhat-lsb repo config file if necessary
+      copy:
+        src: /nfs/admin/twr_files/work/yumrepo/lsbtmp.repo
+        dest: /etc/yum.repos.d/lsbtmp.repo
+        owner: root
+        group: root
+        mode: 0644
+      when: "'redhat-lsb' not in ansible_facts.packages"
+
+    - name: Install redhat-lsb if necessary
+      yum:
+        name: redhat-lsb
+        state: present
+      register: lsb_result
+      when: "'redhat-lsb' not in ansible_facts.packages"
+
+    - name: Rerun Fact Gathering if necessary
+      setup:
+      when: lsb_result.changed
+
+    - name: Install repo configs [Server]
+      copy:
+        src: /nfs/admin/twr_files/work/yumrepo/isosrv.repo
+        dest: /etc/yum.repos.d/isosrv.repo
+        owner: root
+        group: root
+        mode: '0640'
+      when: ansible_facts['lsb']['major_release']|int == 7 and ansible_facts['lsb']['id'] == "RedHatEnterpriseServer"
+
+    - name: Install repo configs [Workstation]
+      copy:
+        src: /nfs/admin/twr_files/work/yumrepo/isowks.repo
+        dest: /etc/yum.repos.d/isowks.repo
+        owner: root
+        group: root
+        mode: '0640'
+      when: ansible_facts['lsb']['major_release']|int == 7 and ansible_facts['lsb']['id'] == "RedHatEnterpriseWorkstation"
+
+    - name: Install prequisite packages
+      yum:
+        name: "{{ prereqs }}"
+        state: present
+      vars:
+        prereqs:
+          - nfs-utils
+
+    - name: Deploy ans ssh key
+      authorized_key:
+        manage_dir: yes
+        state: present
+        user: ans
+        key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDA7Hl9HY0PkEcsFVYIvxSaYedGB29gPFJIos8SRAFgEYK70MDOfZpBSEvU18dk+FpVvv6hjGIsrgw3C8yYQl5xXmJq6xmK5VkN7mKiBtoaEW/2xUCth8908sYw2/MO/XU6/hRi0X08dfcAqGJgMe3cJMwg2woVMXaXbL5yX2o/QRFHAZr68SykRci+1AXWbNaC9GsQTYmPajQWRbmjSgn45Nwn8mCrwoVMl7r9svf8B7WlFqf8f32eIQufDXoEhtx1zjLeJkNEveHekI4CRZ+dzI+rDOKJn6Mvimh29BjZleUoYIOEtD1f/2s6AMSuAfj85UqKKLYMrgvZIdgu1zAX ans@tstsrvnox.valhalla.shortesys.com'
+
+    - name: Cleanup lsbtmp.repo if necessary
+      file:
+        name: /etc/yum.repos.d/lsbtmp.repo
+        state: absent
+      when: lsb_result.changed
+
+    - name: Cleanup lsbinstall if necessary
+      file:
+        name: /var/tmp/lsbinstall/
+        state: absent
+      when: lsb_result.changed
+
+    - name: Reset ans password
+      user:
+        name: ans
+        password: '$6$2ZZEgzgX5SxiKcIb$gYjxKeow7PsS2RshZQwKKdma67YByLRkIiUVA8r5gm9gLdaHgE4p3rnStuYTs3EoeJjyt.gzf68OF8mGymq7M1'
+        update_password: always
+...
