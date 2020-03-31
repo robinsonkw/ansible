@@ -1,9 +1,9 @@
 ---
 - name: Execute RHEL7 server role tasks
   import_tasks: rh7-srv-main.yml
-  when: ansible_facts['lsb']['major_release']|int == 7 && ansible_facts['lsb']['id'] == "RedHatEnterpriseServer"
+  when: ansible_facts['lsb']['major_release']|int == 7 and ansible_facts['lsb']['id'] == "RedHatEnterpriseServer"
 
 - name: Execute RHEL7 workstation role tasks
   import_tasks: rh7-wks-main.yml
-  when: ansible_facts['lsb']['major_release']|int == 7 && ansible_facts['lsb']['id'] == "RedHatEnterpriseWorkstation"
+  when: ansible_facts['lsb']['major_release']|int == 7 and ansible_facts['lsb']['id'] == "RedHatEnterpriseWorkstation"
 ...
