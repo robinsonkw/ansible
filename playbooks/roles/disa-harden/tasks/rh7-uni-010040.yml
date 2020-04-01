@@ -35,7 +35,7 @@
     value: string '{{ login_banner_text }}'
     create: yes
     when: gui_present
-    tags:
+  tags:
     - cat II
 
 - name: "DISA RHEL-07-010040: Set the GNOME3 Login Warning Banner Text (4/4)"
@@ -46,6 +46,6 @@
     create: yes
     state: present
     when: gui_present
-    tags:
+  tags:
     - cat II
 ...
