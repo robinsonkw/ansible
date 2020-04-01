@@ -1,5 +1,5 @@
 ---
-- name: "DISA STIG-RH-7-010020: Read files with incorrect hash"
+- name: "DISA RHEL-07-010020: Read files with incorrect hash"
   shell: "rpm -Va | grep -E '^..5.* /(bin|sbin|lib|lib64|usr)/' | awk '{print $NF}'"
   args:
     warn: False # Ignore ANSIBLE0006, we can't fetch files with incorrect hash using rpm module
@@ -9,7 +9,7 @@
   tags:
     - cat I
 
-- name: "DISA STIG-RH-7-010020: Reinstall packages of files with incorrect hash"
+- name: "DISA RHEL-07-010020: Reinstall packages of files with incorrect hash"
   shell: "yum reinstall $(rpm -qf '{{ item }}')"
   args:
     warn: False # Ignore ANSIBLE0006, this task is flexible with regards to package manager
