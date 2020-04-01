@@ -34,7 +34,7 @@
     option: banner-message-text
     value: string '{{ login_banner_text }}'
     create: yes
-    when: gui_present
+  when: gui_present
   tags:
     - cat II
 
@@ -45,7 +45,7 @@
     line: 'org/gnome/login-screen/banner-message-text'
     create: yes
     state: present
-    when: gui_present
+  when: gui_present
   tags:
     - cat II
 ...
