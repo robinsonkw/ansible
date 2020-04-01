@@ -1,5 +1,5 @@
 ---
-- name: "Enable GNOME3 Login Warning Banner"
+- name: "DISA STIG-RH-7-010030: Enable GNOME3 Login Warning Banner"
   ini_file:
     dest: "/etc/dconf/db/local.d/00-security-settings"
     section: "org/gnome/login-screen"
@@ -8,7 +8,7 @@
     create: yes
   when: gui_present
 
-- name: "Prevent user modification of GNOME banner-message-enabled"
+- name: "DISA STIG-RH-7-010030: Prevent user modification of GNOME banner-message-enabled"
   lineinfile:
     path: /etc/dconf/db/local.d/locks/00-security-settings-lock
     regexp: '^/org/gnome/login-screen/banner-message-enable'
