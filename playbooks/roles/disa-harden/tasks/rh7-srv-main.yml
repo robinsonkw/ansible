@@ -1,6 +1,5 @@
 ---
 - import_tasks: rh7-uni-010010.yml
 - import_tasks: rh7-uni-010020.yml
-
-#- import_tasks: rh7-uni-010030.yml
+- import_tasks: rh7-uni-010030.yml
 ...
