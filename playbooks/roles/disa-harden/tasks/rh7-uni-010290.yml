@@ -1,16 +1,14 @@
 ---
 - name: "DISA RHEL-07-010290: Prevent Log In to Accounts With Empty Password - system-auth"
   replace:
-    dest: /etc/pam.d/system-auth
-    follow: yes
+    path: /etc/pam.d/system-auth
     regexp: 'nullok'
   tags:
     - cat I
 
 - name: "DISA RHEL-07-010290: Prevent Log In to Accounts With Empty Password - password-auth"
   replace:
-    dest: /etc/pam.d/password-auth
-    follow: yes
+    path: /etc/pam.d/password-auth
     regexp: 'nullok'
   tags:
     - cat I
