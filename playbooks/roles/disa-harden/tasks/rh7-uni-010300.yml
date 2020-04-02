@@ -1,5 +1,5 @@
 ---
-- name: DISA RHEL-07-010300: Disable SSH Access via Empty Passwords
+- name: "DISA RHEL-07-010300: Disable SSH Access via Empty Passwords"
   lineinfile:
     create: yes
     path: /etc/ssh/sshd_config
