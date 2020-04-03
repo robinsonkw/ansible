@@ -1,5 +1,5 @@
 ---
-- name: "Disable GDM Guest Login"
+- name: "DISA RHEL-07-010450: Disable GDM Guest Login"
   ini_file:
     path: /etc/gdm/custom.conf
     section: daemon
