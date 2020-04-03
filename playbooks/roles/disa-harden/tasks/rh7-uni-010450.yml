@@ -1,0 +1,13 @@
+---
+- name: "Disable GDM Guest Login"
+  ini_file:
+    dest: /etc/gdm/custom.conf
+    section: daemon
+    option: TimedLoginEnable
+    value: "false"
+    no_extra_spaces: yes
+    create: yes
+  when: gui_present
+  tags:
+    - cat I
+...
