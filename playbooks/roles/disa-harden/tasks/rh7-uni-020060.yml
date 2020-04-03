@@ -1,0 +1,12 @@
+---
+- name: "DISA RHEL-07-020060: Ensure GPG check Enabled for local packages (yum)"
+  ini_file:
+    dest: /etc/yum.conf
+    section: main
+    option: localpkg_gpgcheck
+    value: 1
+    create: False
+  when: (ansible_facts.lsb.id == "RedHatEnterpriseServer" or ansible_facts.lsb.id == "RedHatEnterpriseWorkstation") and True
+  tags:
+    - cat I
+...
