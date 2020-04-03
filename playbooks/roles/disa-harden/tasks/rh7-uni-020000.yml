@@ -1,5 +1,5 @@
 ---
-    - name: "DISA RHEL-07-010450: Ensure rsh-server is removed"
+    - name: "DISA RHEL-07-020000: Ensure rsh-server is removed"
       package:
         name: rsh-server
         state: absent
