@@ -1,0 +1,8 @@
+---
+    - name: "DISA RHEL-07-020010: Ensure ypserv is removed"
+      package:
+        name: ypserv
+        state: absent
+      tags:
+        - cat I
+...
