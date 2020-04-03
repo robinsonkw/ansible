@@ -1,0 +1,10 @@
+---
+- name: "DISA RHEL-07-020220: Configure SELinux Policy"
+  lineinfile:
+    path: /etc/sysconfig/selinux
+    regexp: '^SELINUXTYPE='
+    line: "SELINUXTYPE={{ var_selinux_policy_name }}"
+    create: yes
+  tags:
+    - cat I
+...
