@@ -1,0 +1,13 @@
+---
+- name: "DISA RHEL-07-010440: Disable GDM Automatic Login"
+  ini_file:
+    path: /etc/gdm/custom.conf
+    section: daemon
+    option: AutomaticLoginEnable
+    value: "false"
+    no_extra_spaces: yes
+    create: yes
+  when: gui_present
+  tags:
+    - cat I
+...
