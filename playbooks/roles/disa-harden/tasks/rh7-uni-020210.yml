@@ -1,0 +1,10 @@
+---
+- name: "DISA RHEL-07-020210: Ensure SELinux State is Enforcing"
+  lineinfile:
+    path: /etc/sysconfig/selinux
+    regexp: '^SELINUX='
+    line: "SELINUX=enforcing"
+    create: yes
+  tags:
+    - cat I
+...
