@@ -1,5 +1,5 @@
 ---
 # This variable contains the DOE Warning Banner
 login_banner_text: "DOE Warning Banner"
-var_selinux_policy_name: "enforcing"
+var_selinux_policy_name: "targeted"
 ...
