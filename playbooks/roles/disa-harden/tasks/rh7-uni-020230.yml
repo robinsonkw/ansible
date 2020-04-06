@@ -1,0 +1,8 @@
+---
+- name: "DISA RHEL-07-020230: Disable Ctrl-Alt-Del Reboot Activation"
+  systemd:
+    name: ctrl-alt-del.target
+    masked: yes
+  tags:
+    - cat I
+...
