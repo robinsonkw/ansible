@@ -1,0 +1,21 @@
+---
+- name: "DISA RHEL-07-040550: Find any shosts.equiv on filesystems"
+  shell: 'find / -type f -name "shosts.equiv"'
+  args:
+    warn: False
+  register: shosts_equiv_files_found
+  failed_when: False
+  changed_when: False
+  check_mode: no
+  tags:
+    - cat I
+
+- name: "DISA RHEL-07-040550: Remove any discovered shosts.equiv on filesystems"
+  shell: "rm -f {{ item }}"
+  args:
+    warn: False
+  with_items: "{{ shosts_equiv_files_found.stdout_lines }}"
+  when: (shosts_equiv_files_found.stdout_lines | length > 0) and True
+  tags:
+    - cat I
+...
