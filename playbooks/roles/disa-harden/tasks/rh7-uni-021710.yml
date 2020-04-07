@@ -1,0 +1,6 @@
+---
+- name: "DISA RHEL-07-021710: Ensure telnet-server is removed"
+  package:
+    name: telnet-server
+    state: absent
+...
