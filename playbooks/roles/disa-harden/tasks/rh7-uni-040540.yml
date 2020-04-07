@@ -1,6 +1,6 @@
 ---
 - name: "DISA RHEL-07-040540: Find any .shosts on filesystems"
-  shell: "find . -type f -name "*.bak" -exec rm -f {} \;"
+  shell: 'find . -type f -name ".shosts" -exec rm -f {} \;'
   args:
     warn: False
   register: shosts_files_found
