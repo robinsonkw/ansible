@@ -1,0 +1,8 @@
+---
+- name: "DISA RHEL-07-040690: Ensure vsftpd package is removed"
+  package:
+    name: vsftpd
+    state: absent
+  tags:
+    - cat I
+...
