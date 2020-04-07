@@ -1,0 +1,8 @@
+---
+- name: "DISA RHEL-07-040700 Ensure tftp-server package is removed"
+  package:
+    name: tftp-server
+    state: absent
+  tags:
+    - cat I
+...
