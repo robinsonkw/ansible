@@ -1,0 +1,21 @@
+---
+- name: "DISA RHEL-07-040540: Find any .shosts on filesystems"
+  shell: "find . -type f -name "*.bak" -exec rm -f {} \;"
+  args:
+    warn: False
+  register: shosts_files_found
+  failed_when: False
+  changed_when: False
+  check_mode: no
+  tags:
+    - cat I
+
+- name: "DISA RHEL-07-040540: Remove any discovered .shosts on filesystems"
+  shell: "rm -f {{ item }}"
+  args:
+    warn: False
+  with_items: "{{ shosts_files_found.stdout_lines }}"
+  when: (shosts_files_found.stdout_lines | length > 0) and True
+  tags:
+    - cat I
+...
