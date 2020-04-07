@@ -1,6 +1,6 @@
 ---
 - name: "DISA RHEL-07-030000: Enable service auditd"
-  service:
+  systemd:
     name: auditd
     enabled: "yes"
     state: "started"
