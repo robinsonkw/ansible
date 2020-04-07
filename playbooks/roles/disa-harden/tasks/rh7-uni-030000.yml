@@ -1,0 +1,9 @@
+---
+- name: "DISA RHEL-07-030000: Enable service auditd"
+  service:
+    name: auditd
+    enabled: "yes"
+    state: "started"
+  tags:
+    - cat I
+...
