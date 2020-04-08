@@ -1,0 +1,38 @@
+---
+- name: "DISA RHEL-07-010491: Ensure usr.cfg file exists [EFI]"
+  file:
+    path: /boot/efi/EFI/redhat/user.cfg
+    state: touch
+    owner: root
+    group: root
+    mode:  0644
+  tags:
+    - cat I
+
+- name: "DISA RHEL-07-010491: Ensure grub superuser is set to 'root'"
+  lineinfile:
+    create: yes
+    path: /boot/efi/EFI/redhat/user.cfg
+    regexp: ^set\ssuperusers
+    line: set superusers="root"
+  tags:
+    - cat I
+
+- name: "DISA RHEL-07-010491: Ensure grub superuser is exported"
+  lineinfile:
+    create: yes
+    path: /boot/efi/EFI/redhat/user.cfg
+    regexp: ^export
+    line: export superusers
+  tags:
+    - cat I
+
+- name: "DISA RHEL-07-010491: Ensure encrypted password is set"
+  lineinfile:
+    create: yes
+    path: /boot/efi/EFI/redhat/user.cfg
+    regexp: ^GRUB2_PASSWORD
+    line: "GRUB2_PASSWORD=grub.pbkdf2.sha512.{{ grub2_password_hash }}"
+  tags:
+    - cat I
+...
