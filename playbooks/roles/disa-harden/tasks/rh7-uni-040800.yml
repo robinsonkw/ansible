@@ -1,0 +1,8 @@
+---
+- name: ":DISA RHEL-07-040800 Ensure net-snmp package is removed"
+  package:
+    name: net-snmp
+    state: absent
+  tags:
+    - cat I
+...
