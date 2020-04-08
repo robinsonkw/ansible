@@ -1,0 +1,11 @@
+---
+- name: "DISA RHEL-07-010491: Disable Ctrl-Alt-Del in Gnome GUI"
+  ini_file:
+    dest: "/etc/dconf/db/local.d/00-disable-CAD"
+    section: "org/gnome/settings-daemon/plugins/media-keys"
+    option: logout
+    create: "''"
+  when: gui_present
+  tags:
+    - cat I
+...
