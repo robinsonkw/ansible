@@ -1,5 +1,5 @@
 ---
-    - name: "DISA RHEL-07-040700: Enable Encrypted X11 Forwarding"
+    - name: "DISA RHEL-07-040710: Enable Encrypted X11 Forwarding"
       lineinfile:
         create: yes
         path: /etc/ssh/sshd_config
