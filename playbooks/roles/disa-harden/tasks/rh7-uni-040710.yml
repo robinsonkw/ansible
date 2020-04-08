@@ -1,0 +1,11 @@
+---
+    - name: "DISA RHEL-07-040700: Enable Encrypted X11 Forwarding"
+      lineinfile:
+        create: yes
+        dest: /etc/ssh/sshd_config
+        regexp: ^X11Forwarding
+        line: X11Forwarding yes
+        validate: /usr/sbin/sshd -t -f %s
+      tags:
+        - cat I
+...

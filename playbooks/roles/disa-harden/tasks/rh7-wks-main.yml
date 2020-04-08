@@ -20,6 +20,7 @@
 - import_tasks: rh7-uni-040550.yml
 - import_tasks: rh7-uni-040690.yml
 - import_tasks: rh7-uni-040700.yml
+- import_tasks: rh7-uni-040710.yml
 
 # CAT II DISA STIG IDs
 - import_tasks: rh7-uni-010030.yml
