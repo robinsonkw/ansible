@@ -1,7 +1,7 @@
 ---
 - name: "DISA RHEL-07-010491: Disable Ctrl-Alt-Del in Gnome GUI"
   copy:
-    src: /nfs/admin/twr_files/work/00-disable-CAD
+    src: /nfs/admin/twr_files/work/dconf/00-disable-CAD
     dest: /etc/dconf/db/local.d/00-disable-CAD
     owner: root
     group: root
