@@ -1,0 +1,11 @@
+---
+- name: "DISA RHEL-07-010050: Set Warning Banner"
+  copy:
+    src: /nfs/admin/twr_files/work/banner/issue
+    dest: /etc/issue
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - cat II
+...
