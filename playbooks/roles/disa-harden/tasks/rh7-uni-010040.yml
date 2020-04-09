@@ -10,6 +10,8 @@
     - gdm.d
     - gdm.d/locks
   when: gui_present
+  notify:
+    - update dconf
   tags:
     - cat II
 
@@ -24,6 +26,8 @@
     - 00-security-settings
     - locks/00-security-settings-lock
   when: gui_present
+  notify:
+    - update dconf
   tags:
   - cat II
 
@@ -35,6 +39,8 @@
     value: "{{ login_banner_text }}"
     create: yes
   when: gui_present
+  notify:
+    - update dconf
   tags:
     - cat II
 
@@ -46,6 +52,8 @@
     create: yes
     state: present
   when: gui_present
+  notify:
+    - update dconf
   tags:
     - cat II
 ...

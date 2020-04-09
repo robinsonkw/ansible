@@ -7,6 +7,8 @@
     group: root
     mode: 0644
   when: gui_present
+  notify:
+    - update dconf
   tags:
     - cat I
 ...
