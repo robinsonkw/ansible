@@ -5,6 +5,8 @@
     section: org/gnome/desktop/screensaver
     option: lock-enable
     value: True
+  notify:
+    - update dconf
   tags:
   - Cat II
 ...
