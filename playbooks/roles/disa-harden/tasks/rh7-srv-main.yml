@@ -29,4 +29,5 @@
 - import_tasks: rh7-uni-010030.yml
 - import_tasks: rh7-uni-010040.yml
 - import_tasks: rh7-uni-010050.yml
+- import_tasks: rh7-uni-010060.yml
 ...
