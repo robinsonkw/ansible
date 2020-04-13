@@ -16,7 +16,7 @@
     regexp: '^/org/gnome/desktop/screensaver/idle-delay'
     line: '/org/gnome/desktop/screensaver/idle-delay'
     create: yes
-    when: gui_present
+  when: gui_present
   tags:
     - cat II
 ...
