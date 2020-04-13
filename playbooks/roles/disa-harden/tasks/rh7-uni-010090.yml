@@ -1,0 +1,8 @@
+---
+- name: "DISA RHEL-07-010090: Ensure screen is installed"
+  package:
+    name: screen
+    state: present
+  tags:
+    - cat II
+...
