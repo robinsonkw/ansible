@@ -1,0 +1,9 @@
+---
+  - name: "DISA RHEL-07-010110: Set GNOME3 Screensaver Lock Delay After Activation Period"
+    ini_file:
+      path: "/etc/dconf/db/local.d/00-security-settings"
+      section: "org/gnome/desktop/screensaver"
+      option: lock-delay
+      value: uint32 5
+      create: yes
+...
