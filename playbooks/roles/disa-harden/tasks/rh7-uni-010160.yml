@@ -1,0 +1,8 @@
+---
+    - name: "DISA RHEL-07-010160: Ensure PAM variable difok is set accordingly"
+      lineinfile:
+        create: yes
+        path: "/etc/security/pwquality.conf"
+        regexp: '^#?\s*difok'
+        line: "difok = {{ var_password_pam_difok }}"
+...
