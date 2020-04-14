@@ -1,0 +1,8 @@
+---
+- name: "DISA RHEL-07-010120: Ensure PAM variable ucredit is set accordingly"
+  lineinfile:
+    create: yes
+    path: "/etc/security/pwquality.conf"
+    regexp: '^#?\s*ucredit'
+    line: "ucredit = {{ var_password_pam_ucredit }}"
+...
