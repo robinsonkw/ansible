@@ -1,0 +1,10 @@
+---
+- name: "DISA RHEL-07-010170: Ensure PAM variable minclass is set accordingly"
+  lineinfile:
+    create: yes
+    path: "/etc/security/pwquality.conf"
+    regexp: '^#?\s*minclass'
+    line: "minclass = {{ var_password_pam_minclass }}"
+  tags:
+    - cat II
+...
