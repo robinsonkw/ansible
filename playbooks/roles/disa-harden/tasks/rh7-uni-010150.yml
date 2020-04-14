@@ -1,0 +1,10 @@
+---
+    - name: "DISA RHEL-07-010150: Ensure PAM variable ocredit is set accordingly"
+      lineinfile:
+        create: yes
+        path: "/etc/security/pwquality.conf"
+        regexp: '^#?\s*ocredit'
+        line: "ocredit = {{ var_password_pam_ocredit }}"
+      tags:
+        - cat II
+...
