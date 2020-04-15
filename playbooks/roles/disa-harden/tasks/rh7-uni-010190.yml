@@ -1,0 +1,10 @@
+---
+    - name: "DISA RHEL-07-010190: Ensure PAM variable maxclassrepeat is set accordingly"
+      lineinfile:
+        create: yes
+        path: "/etc/security/pwquality.conf"
+        regexp: '^#?\s*maxclassrepeat'
+        line: "maxclassrepeat = {{ var_password_pam_maxclassrepeat }}"
+      tags:
+        - cat II
+...

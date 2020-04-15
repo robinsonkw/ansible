@@ -6,6 +6,7 @@ login_banner_text_regex: !!str ^(You[\s\n]+are[\s\n]+accessing[\s\n]+a[\s\n]+U.S
 var_password_pam_dcredit: !!str -1
 var_password_pam_difok: !!str 8
 var_password_pam_lcredit: !!str -1
+var_password_pam_maxclassrepeat: !!str 4
 var_password_pam_maxrepeat: !!str 3
 var_password_pam_minclass: !!str 4
 var_password_pam_ocredit: !!str -1
