@@ -1,0 +1,12 @@
+---
+- name: "DISA RHEL-07-010180: PAM Encrypt passwords with SHA512"
+  lineinfile:
+    path: "/var/tmp/pam.d/{{ item.path }}"
+    line: "password     sufficient     pam_unix.so sha512 shadow try_first_pass use_authtok"
+    insertafter: "{{ item.insertafter }}"
+  with_items:
+    - { path: "system-auth-ac", insertafter: "^password\s+requisite\s+pam_pwquality\.so.+" }
+    - { path: "password-auth-ac", insertafter: "^password\s+requisite\s+pam_pwquality\.so.+" }
+  tags:
+    - cat II
+...
