@@ -1,5 +1,5 @@
 ---
-- name: "DISA RHEL-07-010180: PAM Encrypt passwords with SHA512"
+- name: "DISA RHEL-07-010200: PAM Encrypt passwords with SHA512"
   lineinfile:
     path: "/etc/pam.d/{{ item.path }}"
     regexp: '^password\s*sufficient\s*pam_unix\.so.*$'

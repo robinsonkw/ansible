@@ -1,0 +1,10 @@
+---
+    - name: "DISA RHEL-07-010210: Set Password Hashing Algorithm in /etc/login.defs"
+      lineinfile:
+          path: /etc/login.defs
+          regexp: ^#?ENCRYPT_METHOD
+          line: ENCRYPT_METHOD SHA512
+          state: present
+      tags:
+        - cat II
+...
