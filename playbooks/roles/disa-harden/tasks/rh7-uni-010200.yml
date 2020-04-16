@@ -7,7 +7,7 @@
     insertafter: "{{ item.insertafter }}"
   with_items:
     - { path: "system-auth-ac", insertafter: '^password.*requisite.*pam_pwquality\.so.*' }
-    - { path: "password-auth-ac", insertafter: "^password.*requisite.*pam_pwquality\.so.*" }
+    - { path: "password-auth-ac", insertafter: '^password.*requisite.*pam_pwquality\.so.*' }
   tags:
     - cat II
 ...
