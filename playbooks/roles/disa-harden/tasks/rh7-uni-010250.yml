@@ -1,0 +1,10 @@
+---
+- name: "DISA RHEL-07-010250: Set Password Maximum Age"
+  lineinfile:
+    create: yes
+    path: /etc/login.defs
+    regexp: ^#?PASS_MAX_DAYS
+    line: "PASS_MAX_DAYS {{ var_accounts_maximum_age_login_defs }}"
+  tags:
+  - cat II
+...
