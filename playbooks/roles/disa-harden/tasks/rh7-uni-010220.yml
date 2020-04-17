@@ -1,0 +1,11 @@
+---
+    - name: "DISA RHEL-07-010220: Set Password Hashing Algorithm in /etc/libuser.conf"
+      lineinfile:
+        path: /etc/libuser.conf
+        insertafter: '^\s*\[defaults]'
+        regexp: ^#?crypt_style
+        line: crypt_style = sha512
+        state: present
+      tags:
+        - cat II
+...
