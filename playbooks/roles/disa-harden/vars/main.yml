@@ -6,6 +6,9 @@ login_banner_text_regex: !!str ^(You[\s\n]+are[\s\n]+accessing[\s\n]+a[\s\n]+U.S
 var_account_disable_post_pw_expiration: !!str 0
 var_accounts_maximum_age_login_defs: !!str 60
 var_accounts_minimum_age_login_defs: !!str 1
+var_accounts_passwords_pam_faillock_deny: !!str 3
+var_accounts_passwords_pam_faillock_fail_interval: !!str 900
+var_accounts_passwords_pam_faillock_unlock_time: !!str never
 var_password_pam_dcredit: !!str -1
 var_password_pam_difok: !!str 8
 var_password_pam_lcredit: !!str -1
