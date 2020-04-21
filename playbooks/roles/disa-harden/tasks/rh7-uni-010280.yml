@@ -1,0 +1,10 @@
+---
+- name: "DISA RHEL-07-010280: Ensure PAM variable minlen is set accordingly"
+  lineinfile:
+    create: yes
+    path: "/etc/security/pwquality.conf"
+    regexp: '^#?\s*minlen'
+    line: "minlen = {{ var_password_pam_minlen }}"
+  tags:
+    - cat II
+...

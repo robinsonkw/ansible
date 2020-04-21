@@ -10,6 +10,7 @@ var_password_pam_difok: !!str 8
 var_password_pam_lcredit: !!str -1
 var_password_pam_maxclassrepeat: !!str 4
 var_password_pam_maxrepeat: !!str 3
+var_password_pam_minlen: !!str 15
 var_password_pam_minclass: !!str 4
 var_password_pam_ocredit: !!str -1
 var_password_pam_ucredit: !!str -1
