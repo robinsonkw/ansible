@@ -1,0 +1,9 @@
+---
+- name: "DISA RHEL-07-010430: Set accounts logon fail delay"
+  lineinfile:
+    path: /etc/login.defs
+    regexp: ^FAIL_DELAY
+    line: "FAIL_DELAY {{ var_accounts_fail_delay }}"
+  tags:
+    - cat II
+...
