@@ -1,0 +1,12 @@
+---
+- name: "DISA RHEL-07-010470: Disable Host-Based Authentication"
+  lineinfile:
+    create: yes
+    dest: /etc/ssh/sshd_config
+    regexp: ^HostbasedAuthentication
+    line: HostbasedAuthentication no
+  notify:
+    - restart sshd
+  tags:
+    - cat II
+...
