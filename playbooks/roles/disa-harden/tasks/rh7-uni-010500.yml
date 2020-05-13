@@ -1,0 +1,12 @@
+---
+- name: "DISA RHEL-07-010500: Disable User Environment Variable overrides"
+  lineinfile:
+    create: yes
+    dest: /etc/ssh/sshd_config
+    regexp: ^PermitUserEnvironment
+    line: PermitUserEnivornment no
+  notify:
+    - restart sshd
+  tags:
+    - cat II
+...
