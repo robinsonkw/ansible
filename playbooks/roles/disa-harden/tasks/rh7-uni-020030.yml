@@ -1,8 +1,10 @@
 ---
-- name: "DISA RHEL-07-010230: Ensure AIDE is installed"
+- name: "DISA RHEL-07-020030: Ensure AIDE is installed"
   package:
     name: "{{ item }}"
     state: present
   with_items:
     - aide
+  tags:
+    - cat II  
 ...
