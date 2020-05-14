@@ -1,0 +1,13 @@
+---
+- name: "DISA RHEL-07-020100: Ensure kernel module 'usb-storage' is disabled"
+  lineinfile:
+    create: yes
+    owner: root
+    group: root
+    mode: 0644
+    path: "/etc/modprobe.d/usb-storage.conf"
+    regexp: 'usb-storage'
+    line: "install usb-storage /bin/true"
+  tags:
+    - cat II
+...
