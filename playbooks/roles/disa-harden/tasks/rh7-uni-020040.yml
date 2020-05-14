@@ -1,0 +1,9 @@
+---
+- name: "DISA RHEL-07-020040: Ensure the aide_check script is in cron.daily"
+  copy:
+    src: aide_check
+    dest: /etc/cron.daily/aide_check
+    owner: root
+    group: root
+    mode: 0700
+...

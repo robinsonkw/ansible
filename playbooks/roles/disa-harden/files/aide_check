@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# /opt/security/aide_check.sh
+#
+# Run the aide binary in check mode, and send results to root@localhost.  This
+# script is called from /etc/cron.daily/aide-check
+#
+
+/usr/sbin/aide --check | /bin/mail -s "$HOSTNAME - Daily aide integrity check run" root@localhost
