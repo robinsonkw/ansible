@@ -1,5 +1,5 @@
 ---
-- name: "DISA RHEL-07-020100: Ensure the Default UMASK is Set Correctly"
+- name: "DISA RHEL-07-020240: Ensure the Default UMASK is Set Correctly"
   lineinfile:
     create: yes
     dest: /etc/login.defs
