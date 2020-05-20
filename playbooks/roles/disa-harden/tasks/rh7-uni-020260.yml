@@ -13,7 +13,6 @@
     name: Daily update
     hour: update_hour
     minute: update_minute
-    insertafter: EOF
     job: /usr/bin/yum --exclude=kernel* -y update > /dev/null 2>&1
   tags:
     - cat II
