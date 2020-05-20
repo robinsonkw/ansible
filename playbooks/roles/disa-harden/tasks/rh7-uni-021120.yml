@@ -1,0 +1,16 @@
+...
+- name: "DISA RHEL-07-021120: Test for existence /etc/cron.allow"
+  stat:
+    path: /etc/cron.allow
+  register: file_exists
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-021120: Ensure group owner root on /etc/cron.allow"
+  file:
+    path: /etc/cron.allow
+    group: root
+  when: file_exists.stat.exists
+  tags:
+    - cat II
+...

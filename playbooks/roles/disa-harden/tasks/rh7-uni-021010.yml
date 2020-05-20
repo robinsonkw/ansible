@@ -1,0 +1,37 @@
+---
+- name: "DISA RHEL-07-021010: Look up device associated to mountpoint"
+  shell: mount | grep ' {{ var_removable_partition }} ' |cut -d ' ' -f 1
+  args:
+    warn: False # Ignore ANSIBLE0006, we can't fetch device name with mount module
+  register: device_name
+  check_mode: no
+  changed_when: False
+  tags:
+    - cat II
+
+- block:
+  - name: "DISA RHEL-07-021010: Look up device previous mount option"
+    shell: mount | grep ' {{ var_removable_partition }} ' | sed -re 's:.*\((.*)\):\1:'
+    args:
+      warn: False # Ignore ANSIBLE0006, we can't fetch mount options with mount module
+    register: device_cur_mountoption
+    check_mode: no
+
+  - name: "DISA RHEL-07-021010: Look up device fstype"
+    shell: mount | grep ' {{ var_removable_partition }} ' | cut -d ' ' -f 5
+    args:
+      warn: False # Ignore ANSIBLE0006, we can't fetch fstype with mount module
+    register: device_fstype
+    check_mode: no
+
+  - name: "DISA RHEL-07-021010: Ensure permission nosuid are set on var_removable_partition"
+    mount:
+      path: "{{ var_removable_partition }}"
+      src: "{{ device_name.stdout }}"
+      opts: "{{ device_cur_mountoption.stdout }},nosuid"
+      state: "mounted"
+      fstype: "{{ device_fstype.stdout }}"
+  when: device_name.stdout | length > 0
+  tags:
+  - cat II
+...
