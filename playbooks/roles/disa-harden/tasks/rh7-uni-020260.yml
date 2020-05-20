@@ -11,8 +11,8 @@
 - name: "DISA RHEL-07-020260: Security patches are up to date (cron entry)"
   cron:
     name: Daily update
-    hour: {{ update_hour | int }}
-    minute: {{ update_minute | int }}
+    hour: "{{ update_hour|int }}"
+    minute: "{{ update_minute|int }}"
     job: /usr/bin/yum --exclude=kernel* -y update > /dev/null 2>&1
   tags:
     - cat II
