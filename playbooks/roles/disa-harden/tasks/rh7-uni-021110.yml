@@ -6,7 +6,7 @@
   tags:
     - cat II
 
-- name: "DISA RHEL-07-021110: Ensure owner 0 on /etc/cron.allow"
+- name: "DISA RHEL-07-021110: Ensure owner is root on /etc/cron.allow"
   file:
     path: /etc/cron.allow
     owner: root
