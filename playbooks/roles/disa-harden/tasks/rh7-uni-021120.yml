@@ -1,4 +1,4 @@
-...
+---
 - name: "DISA RHEL-07-021120: Test for existence /etc/cron.allow"
   stat:
     path: /etc/cron.allow
