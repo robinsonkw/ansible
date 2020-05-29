@@ -1,0 +1,9 @@
+---
+- name: "DISA RHEL-07-030350: Configure auditd mail_acct Action on Low Disk Space"
+  lineinfile:
+    dest: /etc/audit/auditd.conf
+    line: "action_mail_acct = {{ var_auditd_action_mail_acct }}"
+    state: present
+  tags:
+    - cat II
+...

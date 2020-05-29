@@ -11,7 +11,9 @@ var_accounts_passwords_pam_faillock_deny: !!str 3
 var_accounts_passwords_pam_faillock_fail_interval: !!str 900
 var_accounts_passwords_pam_faillock_unlock_time: !!str never
 var_accounts_user_umask: !!str 077
+var_auditd_action_mail_acct: !!str root
 var_auditd_space_left: !!str 100
+var_auditd_space_left_action: !!str email
 var_password_pam_dcredit: !!str -1
 var_password_pam_difok: !!str 8
 var_password_pam_lcredit: !!str -1
