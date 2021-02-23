@@ -1,0 +1,43 @@
+---
+- name: "DISA RHEL-07-030620: Search /etc/audit/rules.d for other user/group modification audit rules"
+  find:
+    paths: "/etc/audit/rules.d"
+    recurse: no
+    contains: "-k logins$"
+    patterns: "*.rules"
+  register: find_lastlog
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030620: If existing user/group modification ruleset not found, use /etc/audit/rules.d/logins.rules as the recipient for the rule"
+  set_fact:
+    all_files:
+      - /etc/audit/rules.d/logins.rules
+  when: find_lastlog.matched == 0 and True
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030620: Use matched file as the recipient for the rule"
+  set_fact:
+    all_files:
+      - "{{ find_lastlog.files | map(attribute='path') | list | first }}"
+  when: find_lastlog.matched > 0 and True
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030620: Inserts/replaces the lastlog rule in rules.d"
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: "-w /var/run/lastlog -p wa -k logins"
+    create: yes
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030620: Inserts/replaces the lastlog rule in /etc/audit/audit.rules"
+  lineinfile:
+    line: "-w /var/run/lastlog -p wa -k logins"
+    state: present
+    dest: /etc/audit/audit.rules
+  tags:
+    - cat II
+...   
