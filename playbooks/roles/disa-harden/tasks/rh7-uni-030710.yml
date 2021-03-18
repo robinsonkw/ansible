@@ -1,0 +1,43 @@
+---
+- name: "DISA RHEL-07-030710: Search /etc/audit/rules.d for newgrp audit rule entries"
+  find:
+    paths: "/etc/audit/rules.d"
+    recurse: no
+    contains: "^.*path=/usr/bin/newgrp.*$"
+    patterns: "*.rules"
+  register: find_newgrp
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030710: Use /etc/audit/rules.d/privileged.rules as the recipient for the rule"
+  set_fact:
+    all_files:
+      - /etc/audit/rules.d/privileged.rules
+  when: find_newgrp.matched == 0 and True
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030710: Use matched file as the recipient for the rule"
+  set_fact:
+    all_files:
+      - "{{ find_newgrp.files | map(attribute='path') | list | first }}"
+  when: find_newgrp.matched > 0 and True
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030710: Inserts/replaces the newgrp rule in rules.d"
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: "-a always,exit -F path=/usr/bin/newgrp -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged"
+    create: yes
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030710: Inserts/replaces the newgrp rule in /etc/audit/audit.rules"
+  lineinfile:
+    path: /etc/audit/audit.rules
+    line: "-a always,exit -F path=/usr/bin/newgrp -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged"
+    create: yes
+  tags:
+    - cat II
+...   

@@ -97,4 +97,12 @@
 # - import_tasks: rh7-uni-030610.yml
 # - import_tasks: rh7-uni-030620.yml
 # - import_tasks: rh7-uni-030630.yml
+# - import_tasks: rh7-uni-030640.yml
+# - import_tasks: rh7-uni-030650.yml
+# - import_tasks: rh7-uni-030660.yml
+# - import_tasks: rh7-uni-030670.yml
+# - import_tasks: rh7-uni-030680.yml
+# - import_tasks: rh7-uni-030690.yml
+# - import_tasks: rh7-uni-030710.yml
+# - import_tasks: rh7-uni-030720.yml
 ...
