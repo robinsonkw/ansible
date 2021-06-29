@@ -1,0 +1,43 @@
+---
+- name: "DISA RHEL-07-030810: Search /etc/audit/rules.d for pam_timestamp_check audit rule entries"
+  find:
+    paths: "/etc/audit/rules.d"
+    recurse: no
+    contains: "^.*path=/usr/sbin/pam_timestamp_check.*$"
+    patterns: "*.rules"
+  register: find_pam_timestamp_check
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030810: Use /etc/audit/rules.d/privileged.rules as the recipient for the rule"
+  set_fact:
+    all_files:
+      - /etc/audit/rules.d/privileged.rules
+  when: find_pam_timestamp_check.matched == 0 and True
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030810: Use matched file as the recipient for the rule"
+  set_fact:
+    all_files:
+      - "{{ find_pam_timestamp_check.files | map(attribute='path') | list | first }}"
+  when: find_pam_timestamp_check.matched > 0 and True
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030810: Inserts/replaces the pam_timestamp_check rule in rules.d"
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: "-a always,exit -F path=/usr/sbin/pam_timestamp_check -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged"
+    create: yes
+  tags:
+    - cat II
+
+- name: "DISA RHEL-07-030810: Inserts/replaces the pam_timestamp_check rule in /etc/audit/audit.rules"
+  lineinfile:
+    path: /etc/audit/audit.rules
+    line: "-a always,exit -F path=/usr/sbin/pam_timestamp_check -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged"
+    create: yes
+  tags:
+    - cat II
+...   
