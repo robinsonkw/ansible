@@ -1,0 +1,64 @@
+---
+- name: "DISA-STIG-RHEL-07-030900: Set architecture for audit rmdir tasks"
+  set_fact:
+    audit_arch: "b{{ ansible_architecture | regex_replace('.*(\\d\\d$)','\\1') }}"
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: Search /etc/audit/rules.d for other DAC audit rules"
+  find:
+    paths: "/etc/audit/rules.d"
+    recurse: no
+    contains: "-F key=delete$"
+    patterns: "*.rules"
+  register: find_rmdir
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: If existing DAC ruleset not found, use /etc/audit/rules.d/delete.rules as the recipient for the rule"
+  set_fact:
+    all_files:
+      - /etc/audit/rules.d/delete.rules
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: Use matched file as the recipient for the rule"
+  set_fact:
+    all_files:
+      - "{{ find_rmdir.files | map(attribute='path') | list | first }}"
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: Inserts/replaces the rmdir rule in rules.d when on x86"
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: "-a always,exit -F arch=b32 -S rmdir -F auid>=1000 -F auid!=unset -F key=delete"
+    create: yes
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: Inserts/replaces the rmdir rule in rules.d when on x86_64"
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: "-a always,exit -F arch=b64 -S rmdir -F auid>=1000 -F auid!=unset -F key=delete"
+    create: yes
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: Inserts/replaces the rmdir rule in /etc/audit/audit.rules when on x86"
+  lineinfile:
+    line: "-a always,exit -F arch=b32 -S rmdir -F auid>=1000 -F auid!=unset -F key=delete"
+    state: present
+    dest: /etc/audit/audit.rules
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030900: Inserts/replaces the rmdir rule in audit.rules when on x86_64"
+  lineinfile:
+    line: "-a always,exit -F arch=b64 -S rmdir -F auid>=1000 -F auid!=unset -F key=delete"
+    state: present
+    dest: /etc/audit/audit.rules
+    create: yes
+  tags:
+    - cat II
+    ...
