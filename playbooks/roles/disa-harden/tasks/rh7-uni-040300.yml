@@ -1,0 +1,8 @@
+---
+- name: "DISA-STIG-RHEL-07-040300: Ensure openssh-server is installed"
+  package:
+    name: openssh-server
+    state: present
+  tags:
+    - cat II
+...
