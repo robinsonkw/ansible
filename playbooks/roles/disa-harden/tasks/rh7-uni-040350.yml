@@ -1,0 +1,12 @@
+---
+- name: "DISA-STIG-RHEL-07-040450: Enable Use of Strict Mode Checking"
+  lineinfile:
+    create: yes
+    dest: /etc/ssh/sshd_config
+    regexp: (?i)^#?strictmodes
+    line: StrictModes yes
+    validate: /usr/sbin/sshd -t -f %s
+  #notify: restart sshd
+  tags:
+    - cat II
+...
