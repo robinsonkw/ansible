@@ -1,0 +1,10 @@
+---
+- name: "DISA-STIG-RHEL-07-040201: Ensure sysctl kernel.randomize_va_space is set to 2"
+  sysctl:
+    name: kernel.randomize_va_space
+    value: 2
+    state: present
+    reload: yes
+  tags:
+    - cat II
+...
