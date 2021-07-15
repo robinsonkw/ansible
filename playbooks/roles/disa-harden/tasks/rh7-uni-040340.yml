@@ -1,0 +1,12 @@
+---
+- name: "DISA-STIG-RHEL-07-040340: Set SSH Client Alive Count""
+  lineinfile:
+    create: yes
+    dest: /etc/ssh/sshd_config
+    regexp: ^ClientAliveCountMax
+    line: 'ClientAliveCountMax {{ var_sshd_set_keepalive }}'
+    validate: /usr/sbin/sshd -t -f %s
+  #notify: restart sshd
+  tags:
+    - cat II
+...
