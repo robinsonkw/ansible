@@ -1,0 +1,8 @@
+---
+- name: "DISA-STIG-RHEL-07-040730: Ensure xorg-x11-server-common is removed"
+  package:
+    name: xorg-x11-server-common
+    state: absent
+  tags:
+    - cat II
+...

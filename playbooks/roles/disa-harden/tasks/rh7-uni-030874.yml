@@ -1,0 +1,39 @@
+---
+- name: "DISA-STIG-RHEL-07-030874: Set architecture for audit opasswd tasks"
+  set_fact:
+    audit_arch: "b{{ ansible_architecture | regex_replace('.*(\\d\\d$)','\\1') }}"
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030874: Search /etc/audit/rules.d for other user/group modification audit rules"
+  find:
+    paths: "/etc/audit/rules.d"
+    recurse: no
+    contains: "-k audit_rules_usergroup_modification$"
+    patterns: "*.rules"
+  register: find_opasswd
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030874: If existing user/group modification ruleset not found, use /etc/audit/rules.d/privileged.rules as the recipient for the rule"
+  set_fact:
+    all_files:
+      - /etc/audit/rules.d/privileged.rules
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030874: Use matched file as the recipient for the rule"
+  set_fact:
+    all_files:
+      - "{{ find_opasswd.files | map(attribute='path') | list | first }}"
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-030874: Inserts/replaces the opasswd rule in rules.d when on x86"
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: "-w /etc/security/opasswd -p wa -k audit_rules_usergroup_modification"
+    create: yes
+  tags:
+    - cat II
+...

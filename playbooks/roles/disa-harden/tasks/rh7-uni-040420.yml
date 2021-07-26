@@ -1,0 +1,10 @@
+---
+- name: "DISA-STIG-RHEL-07-040420: Find /etc/ssh file(s)"
+  find:
+    paths: "/etc/ssh"
+    patterns: "^.*_key$"
+    use_regex: yes
+  register: files_found
+  tags:
+    - cat II
+...

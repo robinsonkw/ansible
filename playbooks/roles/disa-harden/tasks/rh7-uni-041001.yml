@@ -1,0 +1,9 @@
+---
+- name: "DISA-STIG-RHEL-07-041001: Ensure pam_pkcs11 is installed"
+      package:
+        name: pam_pkcs11
+        state: present
+      when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+      tags:
+        - cat II
+...
