@@ -1,5 +1,5 @@
 ---
-- name: "DISA-STIG-RHEL-07-040340: Set SSH Client Alive Count""
+- name: "DISA-STIG-RHEL-07-040340: Set SSH Client Alive Count"
   lineinfile:
     create: yes
     dest: /etc/ssh/sshd_config

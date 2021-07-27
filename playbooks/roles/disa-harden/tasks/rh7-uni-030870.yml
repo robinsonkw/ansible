@@ -22,10 +22,11 @@
   tags:
     - cat II
 
-- name: "DISA RHEL-07-030870: Use matched file as the recipient for the rule
+- name: "DISA RHEL-07-030870: Use matched file as the recipient for the rule"
   set_fact:
     all_files:
       - "{{ find_passwd.files | map(attribute='path') | list | first }}"
+  when: find_passwd.matched > 0
   tags:
     - cat II
 

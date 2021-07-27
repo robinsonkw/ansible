@@ -17,26 +17,26 @@
     - cat II
 
 - name: "DISA RHEL-07-030590: Use matched file as the recipient for the rule"
-    set_fact:
-      all_files:
-        - "{{ find_setfiles.files | map(attribute='path') | list | first }}"
-    when: find_setfiles.matched > 0 and True
-    tags:
-      - cat II
+  set_fact:
+    all_files:
+      - "{{ find_setfiles.files | map(attribute='path') | list | first }}"
+  when: find_setfiles.matched > 0 and True
+  tags:
+    - cat II
 
 - name: "DISA RHEL-07-030590: Inserts/replaces the setfiles rule in rules.d"
-    lineinfile:
-      path: "{{ all_files[0] }}"
-      line: '-a always,exit -F path=/usr/sbin/setfiles -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged'
-      create: yes
-    tags:
-      - cat II
+  lineinfile:
+    path: "{{ all_files[0] }}"
+    line: '-a always,exit -F path=/usr/sbin/setfiles -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged'
+    create: yes
+  tags:
+    - cat II
 
 - name: "DISA RHEL-07-030590: Inserts/replaces the setfiles rule in audit.rules"
-    lineinfile:
-      path: /etc/audit/audit.rules
-      line: '-a always,exit -F path=/usr/sbin/setfiles -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged'
-      create: yes
-    tags:
-      - cat II
+  lineinfile:
+    path: /etc/audit/audit.rules
+    line: '-a always,exit -F path=/usr/sbin/setfiles -F perm=x -F auid>=1000 -F auid!=unset -F key=privileged'
+    create: yes
+  tags:
+    - cat II
 ...

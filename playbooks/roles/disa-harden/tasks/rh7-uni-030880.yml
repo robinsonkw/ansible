@@ -1,5 +1,5 @@
 ---
-  - name: "DISA-STIG-RHEL-07-030880: Set architecture for audit rename tasks"
+- name: "DISA-STIG-RHEL-07-030880: Set architecture for audit rename tasks"
   set_fact:
     audit_arch: "b{{ ansible_architecture | regex_replace('.*(\\d\\d$)','\\1') }}"
   tags:
