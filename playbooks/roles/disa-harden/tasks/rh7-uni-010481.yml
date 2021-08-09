@@ -1,0 +1,11 @@
+---
+- name: "DISA-STIG-RHEL-07-010481: require single user mode password"
+  lineinfile:
+    create: true
+    dest: /usr/lib/systemd/system/rescue.service
+    regexp: ^#?ExecStart=
+    line: ExecStart=-/bin/sh -c "/sbin/sulogin; /usr/bin/systemctl --fail --no-block
+      default"
+  tags:
+    - cat II
+  ...
