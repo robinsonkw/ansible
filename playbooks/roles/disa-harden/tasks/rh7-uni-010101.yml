@@ -1,0 +1,23 @@
+---
+- package_facts:
+    manager: auto
+  name: Gather the package facts
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-010101: Prevent user modification of GNOME Screensaver idle-activation-enabled"
+  lineinfile:
+    path: /etc/dconf/db/local.d/locks/00-security-settings-lock
+    regexp: ^/org/gnome/desktop/screensaver/idle-activation-enabled
+    line: /org/gnome/desktop/screensaver/idle-activation-enabled
+    create: true
+  when: '"gdm" in ansible_facts.packages'
+  tags:
+    - cat II
+
+- name: "DISA-STIG-RHEL-07-010101: Dconf Update"
+  command: dconf update
+  when: '"gdm" in ansible_facts.packages'
+  tags:
+    - cat II
+...
