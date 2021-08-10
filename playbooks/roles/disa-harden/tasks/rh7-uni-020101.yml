@@ -1,0 +1,10 @@
+---
+- name: "DISA-STIG-RHEL-07-020101: Ensure kernel module 'dccp' is disabled"
+  lineinfile:
+    create: true
+    dest: /etc/modprobe.d/dccp.conf
+    regexp: dccp
+    line: install dccp /bin/true
+  tags:
+    - cat II
+  ...
