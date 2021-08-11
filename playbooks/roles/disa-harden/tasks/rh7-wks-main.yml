@@ -1,42 +1,39 @@
 ---
 # CAT I DISA STIG IDs
-- import_tasks: rh7-uni-010010.yml
 - import_tasks: rh7-uni-010020.yml
 - import_tasks: rh7-uni-010290.yml
 - import_tasks: rh7-uni-010300.yml
 - import_tasks: rh7-uni-010440.yml
 - import_tasks: rh7-uni-010450.yml
-#- import_tasks: rh7-uni-010491.yml
+# - import_tasks: rh7-uni-010480.yml # Not Applicable for RHEL 7.2+
+# - import_tasks: rh7-uni-010482.yml # not coded
+# - import_tasks: rh7-uni-010490.yml # Not Applicable for RHEL 7.2+
+# - import_tasks: rh7-uni-010491.yml # Cannot be tested without EFI BIOS
 - import_tasks: rh7-uni-020000.yml
 - import_tasks: rh7-uni-020010.yml
 - import_tasks: rh7-uni-020050.yml
 - import_tasks: rh7-uni-020060.yml
-- import_tasks: rh7-uni-020210.yml
-- import_tasks: rh7-uni-020220.yml
-- import_tasks: rh7-uni-020230.yml
-- import_tasks: rh7-uni-020231.yml
-- import_tasks: rh7-uni-021710.yml
-- import_tasks: rh7-uni-030000.yml
-- import_tasks: rh7-uni-040390.yml
-- import_tasks: rh7-uni-040540.yml
-- import_tasks: rh7-uni-040550.yml
-- import_tasks: rh7-uni-040690.yml
-- import_tasks: rh7-uni-040700.yml
-- import_tasks: rh7-uni-040710.yml
-- import_tasks: rh7-uni-040800.yml
+# - import_tasks: rh7-uni-020250.yml # not coded
+# - import_tasks: rh7-uni-020310.yml # human intervention req'd to fix the issue
+# - import_tasks: rh7-uni-021350.yml # human intervention req'd to fix the issue
+# - import_tasks: rh7-uni-021710.yml # N/A cannot be tested automatically, refer to update policy for assurance.
+- import_tasks: rh7-uni-040390.yml # not coded
+- import_tasks: rh7-uni-040540.yml # not coded
+- import_tasks: rh7-uni-040550.yml # not coded
+- import_tasks: rh7-uni-040690.yml # not coded
+- import_tasks: rh7-uni-040700.yml # not coded
+- import_tasks: rh7-uni-040800.yml # not coded
 
 # CAT II DISA STIG IDs
 - import_tasks: rh7-uni-010030.yml
-- import_tasks: rh7-uni-010040.yml
-- import_tasks: rh7-uni-010050.yml
 - import_tasks: rh7-uni-010060.yml
 # - import_tasks: rh7-uni-010061.yml
 - import_tasks: rh7-uni-010070.yml
 # - import_tasks: rh7-uni-010081.yml
-- import_tasks: rh7-uni-010090.yml
 - import_tasks: rh7-uni-010100.yml
 # - import_tasks: rh7-uni-010101.yml
 - import_tasks: rh7-uni-010110.yml
+# - import_tasks: rh7-uni-010118.yml # not coded - Further research needed to implement.
 # - import_tasks: rh7-uni-010119.yml
 - import_tasks: rh7-uni-010120.yml
 - import_tasks: rh7-uni-010130.yml
@@ -50,31 +47,40 @@
 - import_tasks: rh7-uni-010210.yml
 - import_tasks: rh7-uni-010220.yml
 - import_tasks: rh7-uni-010230.yml
+# - import_tasks: rh7-uni-010240.yml # not coded - merely a human validation/audit.
 - import_tasks: rh7-uni-010250.yml
+# - import_tasks: rh7-uni-010260.yml # not coded - merely a human validation/audit.
 - import_tasks: rh7-uni-010270.yml
 - import_tasks: rh7-uni-010280.yml
 - import_tasks: rh7-uni-010310.yml
-- import_tasks: rh7-uni-010320.yml
-- import_tasks: rh7-uni-010330.yml
+# - import_tasks: rh7-uni-010340.yml # not coded - Further research needed to implement.
+# - import_tasks: rh7-uni-010350.yml # not coded - Further research needed to implement.
 - import_tasks: rh7-uni-010430.yml
 - import_tasks: rh7-uni-010460.yml
 - import_tasks: rh7-uni-010470.yml
 # - import_tasks: rh7-uni-010481.yml
 - import_tasks: rh7-uni-020030.yml
-- import_tasks: rh7-uni-020040.yml
 - import_tasks: rh7-uni-020100.yml
 # - import_tasks: rh7-uni-020101.yml
+# - import_tasks: rh7-uni-020110.yml # This service is utilized in our environment and cannot be disabled
+# - import_tasks: rh7-uni-020200.yml
 - import_tasks: rh7-uni-020240.yml
-- import_tasks: rh7-uni-020260.yml
+# - import_tasks: rh7-uni-020610.yml # not coded - Further research needed to implement.
+# - import_tasks: rh7-uni-020620.yml # not coded - Further research needed to implement.
 - import_tasks: rh7-uni-021000.yml
 - import_tasks: rh7-uni-021010.yml
-- import_tasks: rh7-uni-021020.yml
+# - import_tasks: rh7-uni-021030.yml # not coded - Further research needed to implement.
 - import_tasks: rh7-uni-021110.yml
 - import_tasks: rh7-uni-021120.yml
-- import_tasks: rh7-uni-021300.yml
-#- import_tasks: rh7-uni-030300.yml
+# - import_tasks: rh7-uni-030000.yml
+# - import_tasks: rh7-uni-030010.yml # not coded - Further research needed to implement.
+# - import_tasks: rh7-uni-030201.yml # not coded - Further research needed to implement.
+# - import_tasks: rh7-uni-030210.yml
+# - import_tasks: rh7-uni-030211.yml # not coded - Further research needed to implement.
+# - import_tasks: rh7-uni-030300.yml
 - import_tasks: rh7-uni-030310.yml
-- import_tasks: rh7-uni-030330.yml
+# - import_tasks: rh7-uni-030320.yml
+# - import_tasks: rh7-uni-030321.yml # not coded - Further research needed to implement.
 - import_tasks: rh7-uni-030340.yml
 - import_tasks: rh7-uni-030350.yml
 # - import_tasks: rh7-uni-030360.yml
@@ -110,17 +116,21 @@
 # - import_tasks: rh7-uni-030670.yml
 # - import_tasks: rh7-uni-030680.yml
 # - import_tasks: rh7-uni-030690.yml
+# - import_tasks: rh7-uni-030700.yml # not coded - Further research needed to implement.
 # - import_tasks: rh7-uni-030710.yml
 # - import_tasks: rh7-uni-030720.yml
+# - import_tasks: rh7-uni-030740.yml # not coded - Further research needed to implement.
 # - import_tasks: rh7-uni-030750.yml
 # - import_tasks: rh7-uni-030760.yml
 # - import_tasks: rh7-uni-030770.yml
+# - import_tasks: rh7-uni-030780.yml
 # - import_tasks: rh7-uni-030800.yml
 # - import_tasks: rh7-uni-030810.yml
 # - import_tasks: rh7-uni-030819.yml
+# - import_tasks: rh7-uni-030820.yml
 # - import_tasks: rh7-uni-030821.yml
 # - import_tasks: rh7-uni-030830.yml
-# - import_tasks: rh7-uni-030780.yml
+# - import_tasks: rh7-uni-030840.yml # not coded - Further research needed to implement.
 # - import_tasks: rh7-uni-030870.yml
 # - import_tasks: rh7-uni-030871.yml
 # - import_tasks: rh7-uni-030872.yml
@@ -161,4 +171,6 @@
 # - import_tasks: rh7-uni-040740.yml
 # - import_tasks: rh7-uni-040830.yml
 # - import_tasks: rh7-uni-041001.yml
+# - import_tasks: rh7-uni-041002.yml # not coded - Further research needed to implement.
+# - import_tasks: rh7-uni-041003.yml # not coded - Further research needed to implement.
 ...
