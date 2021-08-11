@@ -1,11 +1,22 @@
 ---
-    - name: "DISA RHEL-07-040710: Enable Encrypted X11 Forwarding"
+- name: "DISA RHEL-07-040710: Disable X11 Forwarding"
+  block:
+
+    - name: Deduplicate values from /etc/ssh/sshd_config
       lineinfile:
-        create: yes
         path: /etc/ssh/sshd_config
-        regexp: ^X11Forwarding
-        line: X11Forwarding yes
+        create: false
+        regexp: (?i)^\s*X11Forwarding\s+
+        state: absent
+
+    - name: Insert correct line to /etc/ssh/sshd_config
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        create: true
+        line: X11Forwarding no
+        state: present
+        insertbefore: ^[#\s]*Match
         validate: /usr/sbin/sshd -t -f %s
       tags:
-        - cat I
+        - cat II
 ...
