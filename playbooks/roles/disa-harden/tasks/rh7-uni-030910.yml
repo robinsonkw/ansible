@@ -26,6 +26,7 @@
   set_fact:
     all_files:
       - "{{ find_unlink.files | map(attribute='path') | list | first }}"
+  when: find_unlink.matched > 0 and True
   tags:
     - cat II
 
