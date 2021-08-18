@@ -26,8 +26,8 @@
   set_fact:
     all_files:
       - "{{ find_gshadow.files | map(attribute='path') | list | first }}"
-   when: find_gshadow.matched > 0 and True
-   tags:
+  when: find_gshadow.matched > 0 and True
+  tags:
     - cat II
 
 - name: "DISA RHEL-07-030872: Inserts/replaces the gshadow rule in rules.d when on x86"
