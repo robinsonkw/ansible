@@ -26,6 +26,7 @@
   set_fact:
     all_files:
       - "{{ find_shadow.files | map(attribute='path') | list | first }}"
+  when: find_shadow.matched > 0 and True
   tags:
     - cat II
 
