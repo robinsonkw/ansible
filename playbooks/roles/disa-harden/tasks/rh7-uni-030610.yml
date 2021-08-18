@@ -21,7 +21,7 @@
   set_fact:
     all_files:
       - "{{ find_faillock.files | map(attribute='path') | list | first }}"
-  when: find_faillock.matched == 0 and True
+  when: find_faillock.matched > 0 and True
   tags:
     - cat II
 
@@ -40,4 +40,4 @@
     dest: /etc/audit/audit.rules
   tags:
     - cat II
-...   
+...
