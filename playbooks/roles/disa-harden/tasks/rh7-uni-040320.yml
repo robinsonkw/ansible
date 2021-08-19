@@ -1,22 +1,21 @@
 ---
-- name: "DISA-STIG-RHEL-07-040320: Set SSH Idle Timeout Interval"
-  block:
+- name: "DISA-STIG-RHEL-07-040320: Deduplicate values from /etc/ssh/sshd_config"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    create: false
+    regexp: (?i)^\s*ClientAliveInterval\s+
+    state: absent
+  tags:
+    - cat II
 
-    - name: Deduplicate values from /etc/ssh/sshd_config
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        create: false
-        regexp: (?i)^\s*ClientAliveInterval\s+
-        state: absent
-
-    - name: Insert correct line to /etc/ssh/sshd_config
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        create: true
-        line: ClientAliveInterval {{ sshd_idle_timeout_value }}
-        state: present
-        insertbefore: ^[#\s]*Match
-        validate: /usr/sbin/sshd -t -f %s
+- name: "DISA-STIG-RHEL-07-040320: Insert correct line to /etc/ssh/sshd_config"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    create: true
+    line: ClientAliveInterval {{ sshd_idle_timeout_value }}
+    state: present
+    insertbefore: ^[#\s]*Match
+    validate: /usr/sbin/sshd -t -f %s
   tags:
     - cat II
 ...
