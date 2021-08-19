@@ -6,7 +6,7 @@
     regexp: ^MACs
     line: "MACs {{ sshd_approved_macs }}"
     validate: /usr/sbin/sshd -t -f %s
-  #notify: restart sshd
+  notify: restart sshd
   tags:
     - cat II
 ...
