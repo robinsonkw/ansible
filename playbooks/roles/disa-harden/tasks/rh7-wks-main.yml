@@ -17,24 +17,25 @@
 # - import_tasks: rh7-uni-020310.yml # human intervention req'd to fix the issue
 # - import_tasks: rh7-uni-021350.yml # human intervention req'd to fix the issue
 # - import_tasks: rh7-uni-021710.yml # N/A cannot be tested automatically, refer to update policy for assurance.
-- import_tasks: rh7-uni-040390.yml # not coded
-- import_tasks: rh7-uni-040540.yml # not coded
-- import_tasks: rh7-uni-040550.yml # not coded
-- import_tasks: rh7-uni-040690.yml # not coded
-- import_tasks: rh7-uni-040700.yml # not coded
-- import_tasks: rh7-uni-040800.yml # not coded
+# - import_tasks: rh7-uni-040390.yml # not coded
+# - import_tasks: rh7-uni-040540.yml # not coded
+# - import_tasks: rh7-uni-040550.yml # not coded
+# - import_tasks: rh7-uni-040690.yml # not coded
+# - import_tasks: rh7-uni-040700.yml # not coded
+# - import_tasks: rh7-uni-040800.yml # not coded
 
 # CAT II DISA STIG IDs
-- import_tasks: rh7-uni-010030.yml
+- import_tasks: rh7-uni-010030.yml # BROKEN - need to fix for standalone/network
+- import_tasks: rh7-uni-010050.yml # BROKEN - need to fix for standalone/network
 - import_tasks: rh7-uni-010060.yml
-# - import_tasks: rh7-uni-010061.yml
+- import_tasks: rh7-uni-010061.yml
 - import_tasks: rh7-uni-010070.yml
-# - import_tasks: rh7-uni-010081.yml
+- import_tasks: rh7-uni-010081.yml
 - import_tasks: rh7-uni-010100.yml
-# - import_tasks: rh7-uni-010101.yml
+- import_tasks: rh7-uni-010101.yml
 - import_tasks: rh7-uni-010110.yml
 # - import_tasks: rh7-uni-010118.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-010119.yml
+# - import_tasks: rh7-uni-010119.yml # BROKEN
 - import_tasks: rh7-uni-010120.yml
 - import_tasks: rh7-uni-010130.yml
 - import_tasks: rh7-uni-010140.yml
@@ -58,119 +59,107 @@
 - import_tasks: rh7-uni-010430.yml
 - import_tasks: rh7-uni-010460.yml
 - import_tasks: rh7-uni-010470.yml
-# - import_tasks: rh7-uni-010481.yml
+- import_tasks: rh7-uni-010481.yml
 - import_tasks: rh7-uni-020030.yml
 - import_tasks: rh7-uni-020100.yml
-# - import_tasks: rh7-uni-020101.yml
+- import_tasks: rh7-uni-020101.yml
 # - import_tasks: rh7-uni-020110.yml # This service is utilized in our environment and cannot be disabled
-# - import_tasks: rh7-uni-020200.yml
-- import_tasks: rh7-uni-020240.yml
-# - import_tasks: rh7-uni-020610.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-020620.yml # not coded - Further research needed to implement.
-- import_tasks: rh7-uni-021000.yml
-- import_tasks: rh7-uni-021010.yml
-# - import_tasks: rh7-uni-021030.yml # not coded - Further research needed to implement.
-- import_tasks: rh7-uni-021110.yml
-- import_tasks: rh7-uni-021120.yml
-# - import_tasks: rh7-uni-030000.yml
-# - import_tasks: rh7-uni-030010.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-030201.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-030210.yml
+# - import_tasks: rh7-uni-020200.yml # BROKEN - NO CODE
 # - import_tasks: rh7-uni-030211.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-030300.yml
+# - import_tasks: rh7-uni-030300.yml # BROKEN - NO CODE
 - import_tasks: rh7-uni-030310.yml
-# - import_tasks: rh7-uni-030320.yml
+# - import_tasks: rh7-uni-030320.yml # BROKEN - NO CODE
 # - import_tasks: rh7-uni-030321.yml # not coded - Further research needed to implement.
 - import_tasks: rh7-uni-030340.yml
 - import_tasks: rh7-uni-030350.yml
-# - import_tasks: rh7-uni-030360.yml
-# - import_tasks: rh7-uni-030370.yml
-# - import_tasks: rh7-uni-030380.yml
-# - import_tasks: rh7-uni-030390.yml
-# - import_tasks: rh7-uni-030400.yml
-# - import_tasks: rh7-uni-030410.yml
-# - import_tasks: rh7-uni-030420.yml
-# - import_tasks: rh7-uni-030430.yml
-# - import_tasks: rh7-uni-030440.yml
-# - import_tasks: rh7-uni-030450.yml
-# - import_tasks: rh7-uni-030460.yml
-# - import_tasks: rh7-uni-030470.yml
-# - import_tasks: rh7-uni-030480.yml
-# - import_tasks: rh7-uni-030490.yml
-# - import_tasks: rh7-uni-030500.yml
-# - import_tasks: rh7-uni-030510.yml
-# - import_tasks: rh7-uni-030520.yml
-# - import_tasks: rh7-uni-030530.yml
-# - import_tasks: rh7-uni-030540.yml
-# - import_tasks: rh7-uni-030550.yml
-# - import_tasks: rh7-uni-030560.yml
-# - import_tasks: rh7-uni-030570.yml
-# - import_tasks: rh7-uni-030580.yml
-# - import_tasks: rh7-uni-030590.yml
-# - import_tasks: rh7-uni-030610.yml
-# - import_tasks: rh7-uni-030620.yml
-# - import_tasks: rh7-uni-030630.yml
-# - import_tasks: rh7-uni-030640.yml
-# - import_tasks: rh7-uni-030650.yml
-# - import_tasks: rh7-uni-030660.yml
-# - import_tasks: rh7-uni-030670.yml
-# - import_tasks: rh7-uni-030680.yml
-# - import_tasks: rh7-uni-030690.yml
+- import_tasks: rh7-uni-030360.yml
+- import_tasks: rh7-uni-030370.yml
+- import_tasks: rh7-uni-030380.yml
+- import_tasks: rh7-uni-030390.yml
+- import_tasks: rh7-uni-030400.yml
+- import_tasks: rh7-uni-030410.yml
+- import_tasks: rh7-uni-030420.yml
+- import_tasks: rh7-uni-030430.yml
+- import_tasks: rh7-uni-030440.yml
+- import_tasks: rh7-uni-030450.yml
+- import_tasks: rh7-uni-030460.yml
+- import_tasks: rh7-uni-030470.yml
+- import_tasks: rh7-uni-030480.yml
+- import_tasks: rh7-uni-030490.yml
+- import_tasks: rh7-uni-030500.yml
+- import_tasks: rh7-uni-030510.yml
+- import_tasks: rh7-uni-030520.yml
+- import_tasks: rh7-uni-030530.yml
+- import_tasks: rh7-uni-030540.yml
+- import_tasks: rh7-uni-030550.yml
+# - import_tasks: rh7-uni-030560.yml # BROKEN - NO CODE
+- import_tasks: rh7-uni-030570.yml
+- import_tasks: rh7-uni-030580.yml
+- import_tasks: rh7-uni-030590.yml
+- import_tasks: rh7-uni-030610.yml
+- import_tasks: rh7-uni-030620.yml
+- import_tasks: rh7-uni-030630.yml
+- import_tasks: rh7-uni-030640.yml
+- import_tasks: rh7-uni-030650.yml
+- import_tasks: rh7-uni-030660.yml
+- import_tasks: rh7-uni-030670.yml
+- import_tasks: rh7-uni-030680.yml
+- import_tasks: rh7-uni-030690.yml
 # - import_tasks: rh7-uni-030700.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-030710.yml
-# - import_tasks: rh7-uni-030720.yml
+- import_tasks: rh7-uni-030710.yml
+- import_tasks: rh7-uni-030720.yml
 # - import_tasks: rh7-uni-030740.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-030750.yml
-# - import_tasks: rh7-uni-030760.yml
-# - import_tasks: rh7-uni-030770.yml
-# - import_tasks: rh7-uni-030780.yml
-# - import_tasks: rh7-uni-030800.yml
-# - import_tasks: rh7-uni-030810.yml
-# - import_tasks: rh7-uni-030819.yml
-# - import_tasks: rh7-uni-030820.yml
-# - import_tasks: rh7-uni-030821.yml
-# - import_tasks: rh7-uni-030830.yml
+- import_tasks: rh7-uni-030750.yml
+- import_tasks: rh7-uni-030760.yml
+- import_tasks: rh7-uni-030770.yml
+- import_tasks: rh7-uni-030780.yml
+- import_tasks: rh7-uni-030800.yml
+- import_tasks: rh7-uni-030810.yml
+- import_tasks: rh7-uni-030819.yml
+# - import_tasks: rh7-uni-030820.yml # BROKEN - NO CODE
+- import_tasks: rh7-uni-030821.yml
+- import_tasks: rh7-uni-030830.yml
 # - import_tasks: rh7-uni-030840.yml # not coded - Further research needed to implement.
-# - import_tasks: rh7-uni-030870.yml
-# - import_tasks: rh7-uni-030871.yml
-# - import_tasks: rh7-uni-030872.yml
-# - import_tasks: rh7-uni-030873.yml
-# - import_tasks: rh7-uni-030874.yml
-# - import_tasks: rh7-uni-030880.yml
-# - import_tasks: rh7-uni-030890.yml
-# - import_tasks: rh7-uni-030900.yml
-# - import_tasks: rh7-uni-030910.yml
-# - import_tasks: rh7-uni-030920.yml
-# - import_tasks: rh7-uni-040110.yml
-# - import_tasks: rh7-uni-040201.yml
-# - import_tasks: rh7-uni-040300.yml
-# - import_tasks: rh7-uni-040320.yml
-# - import_tasks: rh7-uni-040330.yml
-# - import_tasks: rh7-uni-040340.yml
-# - import_tasks: rh7-uni-040350.yml
-# - import_tasks: rh7-uni-040360.yml
-# - import_tasks: rh7-uni-040370.yml
-# - import_tasks: rh7-uni-040380.yml
-# - import_tasks: rh7-uni-040400.yml
-# - import_tasks: rh7-uni-040410.yml
-# - import_tasks: rh7-uni-040420.yml
-# - import_tasks: rh7-uni-040430.yml
-# - import_tasks: rh7-uni-040440.yml
-# - import_tasks: rh7-uni-040450.yml
-# - import_tasks: rh7-uni-040460.yml
-# - import_tasks: rh7-uni-040470.yml
-# - import_tasks: rh7-uni-040610.yml
-# - import_tasks: rh7-uni-040620.yml
-# - import_tasks: rh7-uni-040630.yml
-# - import_tasks: rh7-uni-040640.yml
-# - import_tasks: rh7-uni-040641.yml
-# - import_tasks: rh7-uni-040650.yml
-# - import_tasks: rh7-uni-040660.yml
-# - import_tasks: rh7-uni-040710.yml
-# - import_tasks: rh7-uni-040730.yml
-# - import_tasks: rh7-uni-040740.yml
-# - import_tasks: rh7-uni-040830.yml
-# - import_tasks: rh7-uni-041001.yml
+- import_tasks: rh7-uni-030870.yml
+- import_tasks: rh7-uni-030871.yml
+- import_tasks: rh7-uni-030872.yml
+- import_tasks: rh7-uni-030873.yml
+- import_tasks: rh7-uni-030874.yml
+- import_tasks: rh7-uni-030880.yml
+- import_tasks: rh7-uni-030890.yml
+- import_tasks: rh7-uni-030900.yml
+- import_tasks: rh7-uni-030910.yml
+- import_tasks: rh7-uni-030920.yml
+- import_tasks: rh7-uni-040110.yml
+- import_tasks: rh7-uni-040201.yml
+- import_tasks: rh7-uni-040300.yml
+- import_tasks: rh7-uni-040320.yml
+- import_tasks: rh7-uni-040330.yml
+- import_tasks: rh7-uni-040340.yml
+- import_tasks: rh7-uni-040350.yml
+- import_tasks: rh7-uni-040360.yml
+- import_tasks: rh7-uni-040370.yml
+- import_tasks: rh7-uni-040380.yml
+- import_tasks: rh7-uni-040400.yml
+- import_tasks: rh7-uni-040410.yml
+- import_tasks: rh7-uni-040420.yml
+- import_tasks: rh7-uni-040430.yml
+- import_tasks: rh7-uni-040440.yml
+- import_tasks: rh7-uni-040450.yml
+- import_tasks: rh7-uni-040460.yml
+- import_tasks: rh7-uni-040470.yml
+- import_tasks: rh7-uni-040610.yml
+- import_tasks: rh7-uni-040620.yml
+- import_tasks: rh7-uni-040630.yml
+- import_tasks: rh7-uni-040640.yml
+- import_tasks: rh7-uni-040641.yml
+- import_tasks: rh7-uni-040650.yml
+- import_tasks: rh7-uni-040660.yml
+- import_tasks: rh7-uni-040710.yml
+- import_tasks: rh7-uni-040730.yml
+- import_tasks: rh7-uni-040740.yml
+- import_tasks: rh7-uni-040830.yml
+- import_tasks: rh7-uni-041001.yml
 # - import_tasks: rh7-uni-041002.yml # not coded - Further research needed to implement.
 # - import_tasks: rh7-uni-041003.yml # not coded - Further research needed to implement.
 ...
