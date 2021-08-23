@@ -34,4 +34,5 @@ var_password_pam_ucredit: !!str -1
 var_password_pam_unix_remember: !!str 5
 var_removable_partition: "/usb"
 var_selinux_policy_name: "targeted"
+var_sshd_set_keepalive: !!str 0
 ...
