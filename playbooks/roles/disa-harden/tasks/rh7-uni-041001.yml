@@ -3,7 +3,6 @@
   package:
     name: pam_pkcs11
     state: present
-  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
   tags:
     - cat II
 ...
