@@ -6,5 +6,4 @@ This project implements recommendations from the DOD Defense Information Systems
 Ansible is a centralized configuration management tool that can perform virtually any task that a system administrator would require, but in a scripted, automated fashion.  This project reflects the code base for Ansible that implements the DOD DISA STIG for RHEL 7.
 
 # Authors
-Kermit Short
-Todd Jenkins
+Kermit Short, Todd Jenkins
