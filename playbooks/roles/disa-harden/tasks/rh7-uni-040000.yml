@@ -15,8 +15,7 @@
       tags:
         - cat III
 
-    - name: "DISA-STIG-RHEL-07-040000: Limit the Number of Concurrent Login Sessions Allowed Per User in files from"
-        limits.d
+    - name: "DISA-STIG-RHEL-07-040000: Limit the Number of Concurrent Login Sessions Allowed Per User in files from limits.d"
       replace:
         dest: '{{ item.path }}'
         regexp: ^#?\*.*maxlogins.*
