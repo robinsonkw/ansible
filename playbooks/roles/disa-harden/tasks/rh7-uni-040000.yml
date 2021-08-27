@@ -27,7 +27,7 @@
       tags:
         - cat III
 
-    - name: "DISA-STIG-RHEL-07-040000: Limit the Number of Concurrent Login Sessions Allowed Per User
+    - name: "DISA-STIG-RHEL-07-040000: Limit the Number of Concurrent Login Sessions Allowed Per User"
       lineinfile:
         state: present
         dest: /etc/security/limits.conf
