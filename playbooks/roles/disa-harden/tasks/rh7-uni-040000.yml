@@ -19,8 +19,7 @@
       replace:
         dest: '{{ item.path }}'
         regexp: ^#?\*.*maxlogins.*
-        replace: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions
-          }}'
+        replace: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions }}'
       with_items:
         - '{{ maxlogins.files }}'
       when: '"pam" in ansible_facts.packages'
@@ -33,8 +32,7 @@
         dest: /etc/security/limits.conf
         insertbefore: ^# End of file
         regexp: ^#?\*.*maxlogins
-        line: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions
-          }}'
+        line: '*          hard    maxlogins     {{ var_accounts_max_concurrent_login_sessions }}'
         create: true
       when:
         - maxlogins.matched == 0

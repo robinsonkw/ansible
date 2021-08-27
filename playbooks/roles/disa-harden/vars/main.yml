@@ -13,6 +13,7 @@ sysctl_net_ipv4_conf_all_accept_redirects_value: !!str 0
 sysctl_net_ipv6_conf_all_accept_source_route_value: !!str 0
 var_account_disable_post_pw_expiration: !!str 0
 var_accounts_fail_delay: !!str 4
+var_accounts_max_concurrent_login_sessions: !!str 10
 var_accounts_maximum_age_login_defs: !!str 60
 var_accounts_minimum_age_login_defs: !!str 1
 var_accounts_passwords_pam_faillock_deny: !!str 3
